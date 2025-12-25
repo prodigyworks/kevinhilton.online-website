@@ -3,416 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kevin Hilton | IT Developer</title>
-    <!-- Google Fonts -->
+    <title>Kevin Hilton - Cloud & Mobile Development</title>
+    <link rel="icon" href="https://www.kevinhilton.online/backoffice/application/image/web/system-imageviewer.php?id=ZWpLc2NIOURlK1BPdmdDVDBRekt3dz09">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Styles -->
     <style>
-        :root {
-            --primary-color: #1A73E8; /* Example: main logo color */
-            --secondary-color: #34A853; /* Complementary color */
-            --accent-color: #FABB05; /* Accent for buttons/hover */
-            --bg-color: #f5f5f5;
-            --text-color: #333;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #1a1a1a; background: #f9f9f9; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
 
         /* Header */
-        header {
-            position: sticky;
-            top: 0;
-            width: 100%;
-            background: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            z-index: 1000;
-        }
+        header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255,255,255,0.95); box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 1000; }
+        .container { width: 90%; max-width: 1200px; margin: auto; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav ul li { transition: 0.3s; }
+        nav ul li:hover { opacity: 0.7; }
+        .btn-primary { background: #00aaff; color: #fff; padding: 0.6rem 1.5rem; border-radius: 6px; transition: 0.3s; }
+        .btn-primary:hover { background: #0077cc; }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: auto;
-            padding: 1rem 2rem;
-        }
+        /* Hero */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #00aaff 0%, #00ffaa 100%); color: white; padding: 0 1rem; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; }
 
-        nav .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
+        /* Features */
+        .features { padding: 6rem 0; background: #fff; text-align: center; }
+        .features h2 { font-size: 2rem; margin-bottom: 2rem; }
+        .feature-cards { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
+        .feature-card { background: #f1f1f1; padding: 2rem; border-radius: 10px; width: 280px; transition: 0.3s; }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-card img { width: 60px; margin-bottom: 1rem; }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 1.5rem;
-        }
-
-        nav ul li a {
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            height: 100vh;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 0 1rem;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-
-        .hero .cta-btn {
-            padding: 0.75rem 2rem;
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .hero .cta-btn:hover {
-            background: white;
-            color: var(--accent-color);
-        }
-
-        /* Sections */
-        section {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: var(--primary-color);
-        }
-
-        /* About / Services */
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Portfolio */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .portfolio-item {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .portfolio-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .portfolio-item:hover {
-            transform: scale(1.05);
-        }
-
-        .portfolio-item h3 {
-            padding: 1rem;
-            font-size: 1.2rem;
-            color: var(--primary-color);
-        }
+        /* Case Studies */
+        .case-studies { padding: 6rem 0; background: #f9f9f9; text-align: center; }
+        .case-studies h2 { font-size: 2rem; margin-bottom: 2rem; }
+        .case-cards { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
+        .case-card { background: #fff; padding: 1.5rem; border-radius: 10px; width: 300px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: 0.3s; }
+        .case-card:hover { transform: translateY(-5px); }
 
         /* Testimonials */
-        .testimonials {
-            display: flex;
-            overflow-x: auto;
-            gap: 2rem;
-            scroll-snap-type: x mandatory;
-            padding-bottom: 1rem;
-        }
+        .testimonials { padding: 6rem 0; background: #fff; text-align: center; }
+        .testimonials h2 { font-size: 2rem; margin-bottom: 2rem; }
+        .testimonial-cards { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
+        .testimonial-card { background: #f1f1f1; padding: 2rem; border-radius: 10px; width: 280px; }
 
-        .testimonial {
-            min-width: 300px;
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            scroll-snap-align: center;
-        }
-
-        /* Blog */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .blog-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .blog-card img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-        }
-
-        .blog-card h3 {
-            padding: 1rem;
-            font-size: 1.2rem;
-            color: var(--primary-color);
-        }
-
-        .blog-card p {
-            padding: 0 1rem 1rem;
-            font-size: 0.9rem;
-        }
-
-        /* Contact Form */
-        .contact-form {
-            max-width: 600px;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            padding: 0.75rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-            resize: vertical;
-        }
-
-        .contact-form button {
-            padding: 0.75rem;
-            border: none;
-            border-radius: 5px;
-            background: var(--primary-color);
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .contact-form button:hover {
-            background: var(--secondary-color);
-        }
+        /* CTA Banner */
+        .cta-banner { padding: 4rem 1rem; background: #00aaff; color: white; text-align: center; }
+        .cta-banner h2 { font-size: 2rem; margin-bottom: 1rem; }
+        .cta-banner .btn-primary { background: #fff; color: #00aaff; }
 
         /* Footer */
-        footer {
-            background: #222;
-            color: #fff;
-            padding: 2rem;
-            text-align: center;
-        }
+        footer { padding: 4rem 1rem; background: #1a1a1a; color: #fff; text-align: center; }
+        footer a { color: #00aaff; transition: 0.3s; }
+        footer a:hover { opacity: 0.7; }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            nav ul {
-                display: none;
-            }
+            .feature-cards, .case-cards, .testimonial-cards { flex-direction: column; align-items: center; }
+            .hero h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
+
 <!-- Header -->
 <header>
-    <nav>
-        <div class="logo">Kevin Hilton</div>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <div class="container">
+        <nav>
+            <a href="#"><img src="https://www.kevinhilton.online/backoffice/application/image/web/system-imageviewer.php?id=ZWpLc2NIOURlK1BPdmdDVDBRekt3dz09" alt="Kevin Hilton Logo" style="height:50px;"></a>
+            <ul>
+                <li><a href="#features">Services</a></li>
+                <li><a href="#cases">Case Studies</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact" class="btn-primary">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
 
-<!-- Hero -->
+<!-- Hero Section -->
 <section class="hero">
-    <h1>Building Modern Cloud & Mobile Solutions</h1>
-    <p>IT Developer specializing in cloud-based web systems and mobile development</p>
-    <button class="cta-btn">Get in Touch</button>
+    <h1>Cloud & Mobile Development</h1>
+    <p>I build cloud-based web systems and mobile apps for modern businesses. Fast, scalable, and reliable solutions tailored to your needs.</p>
+    <a href="#contact" class="btn-primary">Get Started</a>
 </section>
 
-<!-- About / Services -->
-<section id="about">
-    <h2>About Me</h2>
-    <div class="cards">
-        <div class="card">
-            <h3>Web Development</h3>
-            <p>Building responsive, scalable web applications using modern frameworks and best practices.</p>
-        </div>
-        <div class="card">
-            <h3>Mobile Apps</h3>
-            <p>Developing mobile apps for iOS and Android with seamless user experiences.</p>
-        </div>
-        <div class="card">
-            <h3>Cloud Solutions</h3>
-            <p>Creating cloud-based systems for efficient, secure, and scalable operations.</p>
+<!-- Features Section -->
+<section id="features" class="features">
+    <div class="container">
+        <h2>Our Services</h2>
+        <div class="feature-cards">
+            <div class="feature-card">
+                <img src="https://img.icons8.com/ios-filled/100/000000/cloud.png" alt="Cloud Development">
+                <h3>Cloud Development</h3>
+                <p>Scalable cloud solutions for your business applications with high reliability.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://img.icons8.com/ios-filled/100/000000/phone.png" alt="Mobile Apps">
+                <h3>Mobile Apps</h3>
+                <p>Custom iOS and Android apps designed for performance and user experience.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://img.icons8.com/ios-filled/100/000000/api.png" alt="API Integration">
+                <h3>API Integration</h3>
+                <p>Seamless integration with third-party services and internal systems.</p>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Portfolio / Case Studies -->
-<section id="portfolio">
-    <h2>Portfolio</h2>
-    <div class="portfolio-grid">
-        <div class="portfolio-item">
-            <img src="https://via.placeholder.com/400x200" alt="Project 1">
-            <h3>Project One</h3>
-        </div>
-        <div class="portfolio-item">
-            <img src="https://via.placeholder.com/400x200" alt="Project 2">
-            <h3>Project Two</h3>
-        </div>
-        <div class="portfolio-item">
-            <img src="https://via.placeholder.com/400x200" alt="Project 3">
-            <h3>Project Three</h3>
-        </div>
-    </div>
-</section>
-
-<!-- Testimonials -->
-<section id="testimonials">
-    <h2>Testimonials</h2>
-    <div class="testimonials">
-        <div class="testimonial">
-            <p>"Kevin delivered our project ahead of schedule and exceeded expectations!"</p>
-            <strong>- Client A</strong>
-        </div>
-        <div class="testimonial">
-            <p>"Professional, reliable, and highly skilled. Highly recommended."</p>
-            <strong>- Client B</strong>
-        </div>
-        <div class="testimonial">
-            <p>"Our mobile app's user experience improved drastically thanks to Kevin."</p>
-            <strong>- Client C</strong>
+<!-- Case Studies Section -->
+<section id="cases" class="case-studies">
+    <div class="container">
+        <h2>Case Studies</h2>
+        <div class="case-cards">
+            <div class="case-card">
+                <h3>Project A</h3>
+                <p>Cloud-based inventory system for a retail business, improving efficiency by 40%.</p>
+            </div>
+            <div class="case-card">
+                <h3>Project B</h3>
+                <p>Mobile app for appointment scheduling, reducing no-shows and increasing customer satisfaction.</p>
+            </div>
+            <div class="case-card">
+                <h3>Project C</h3>
+                <p>API integration for a logistics platform, automating real-time tracking of shipments.</p>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Blog / Insights -->
-<section id="blog">
-    <h2>Insights</h2>
-    <div class="blog-grid">
-        <div class="blog-card">
-            <img src="https://via.placeholder.com/400x150" alt="Blog 1">
-            <h3>Latest Trends in Cloud Computing</h3>
-            <p>Stay updated with the latest innovations and strategies in cloud technologies.</p>
-        </div>
-        <div class="blog-card">
-            <img src="https://via.placeholder.com/400x150" alt="Blog 2">
-            <h3>Mobile App UX Best Practices</h3>
-            <p>Designing mobile experiences that engage and delight users effectively.</p>
+<!-- Testimonials Section -->
+<section id="testimonials" class="testimonials">
+    <div class="container">
+        <h2>What Clients Say</h2>
+        <div class="testimonial-cards">
+            <div class="testimonial-card">
+                <p>"Kevin built our cloud platform from scratch. We now save 50% in operational costs!"</p>
+                <strong>- John Doe, CEO</strong>
+            </div>
+            <div class="testimonial-card">
+                <p>"Amazing mobile app development skills. The project was delivered on time and exceeded expectations."</p>
+                <strong>- Jane Smith, CTO</strong>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Contact -->
-<section id="contact">
-    <h2>Contact Me</h2>
-    <form class="contact-form">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <textarea rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
+<!-- CTA Banner -->
+<section class="cta-banner">
+    <h2>Ready to start your project?</h2>
+    <a href="#contact" class="btn-primary">Contact Me</a>
 </section>
 
 <!-- Footer -->
-<footer>
-    <p>&copy; 2025 Kevin Hilton. All rights reserved.</p>
+<footer id="contact">
+    <div class="container">
+        <p>&copy; 2025 Kevin Hilton. All rights reserved.</p>
+        <p>Email: <a href="mailto:hello@kevinhilton.online">hello@kevinhilton.online</a> | Phone: +44 123 4567 890</p>
+        <p>
+            <a href="#">LinkedIn</a> |
+            <a href="#">Twitter</a> |
+            <a href="#">GitHub</a>
+        </p>
+    </div>
 </footer>
 
-<!-- JS -->
+<!-- Smooth Scroll JS -->
 <script>
-    // Smooth scroll for nav links
-    document.querySelectorAll('nav ul li a').forEach(link => {
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach(link => {
         link.addEventListener('click', e => {
             e.preventDefault();
             const target = document.querySelector(link.getAttribute('href'));
             target.scrollIntoView({ behavior: 'smooth' });
         });
     });
-
-    // Simple testimonials auto-scroll
-    const testimonials = document.querySelector('.testimonials');
-    let scrollPos = 0;
-    setInterval(() => {
-        scrollPos += 320;
-        if(scrollPos >= testimonials.scrollWidth) scrollPos = 0;
-        testimonials.scrollTo({ left: scrollPos, behavior: 'smooth' });
-    }, 4000);
 </script>
+
 </body>
 </html>
