@@ -1334,12 +1334,14 @@ section {
     background-color: #fff;
   }
 }
-
+.shadowed {
+  text-shadow: 10px 0 10px rgba(0, 0, 0, 0.5);
+}
 .hero .icon-box {
   padding: 20px 30px;
   position: relative;
   overflow: hidden;
-  background: #ffffff;
+  background: #222222;
   box-shadow: 0 0 29px 0 rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease-in-out;
   border-radius: 8px;
@@ -1367,11 +1369,11 @@ section {
   transition: all 0.3s ease-in-out;
   font-size: 48px;
   line-height: 1;
-  color: rgb(0 0 0 / 60%);
+  color: rgb(255 255 255 / 60%);
 }
 
 .hero .icon-box:hover {
-  background: #222222;
+  background: red;
 }
 
 .hero .icon-box:hover .title a,
