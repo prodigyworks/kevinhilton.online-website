@@ -1,0 +1,12 @@
+if [ -z "$1" ]; then
+	COMMIT=`date`;
+else
+	COMMIT=$1;
+fi
+
+git add .
+git commit -m "$COMMIT"
+git push origin master
+
+ git ftp push  --user kevinhilton --passwd Jasmin717440 ftp://kevinhilton.online/httpdocs
+
