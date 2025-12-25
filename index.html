@@ -3,66 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kevin Hilton - Cloud & Mobile Development</title>
-    <link rel="icon" href="https://www.kevinhilton.online/backoffice/application/image/web/system-imageviewer.php?id=ZWpLc2NIOURlK1BPdmdDVDBRekt3dz09">
+    <title>Kevin Hilton | Cloud & Mobile Software Solutions</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset & Base */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #1a1a1a; background: #f9f9f9; }
+        /* --- Reset & Basic Styles --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #333; background: #f9f9f9; }
         a { text-decoration: none; color: inherit; }
-        img { max-width: 100%; display: block; }
 
-        /* Header */
-        header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255,255,255,0.95); box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 1000; }
-        .container { width: 90%; max-width: 1200px; margin: auto; }
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
-        nav ul { display: flex; list-style: none; gap: 2rem; }
-        nav ul li { transition: 0.3s; }
-        nav ul li:hover { opacity: 0.7; }
-        .btn-primary { background: #00aaff; color: #fff; padding: 0.6rem 1.5rem; border-radius: 6px; transition: 0.3s; }
-        .btn-primary:hover { background: #0077cc; }
+        /* --- Header --- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #fff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+        }
+        header .logo img {
+            height: 70px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        nav ul li a {
+            font-weight: 600;
+            color: #1a1a1a;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover { color: #0077ff; }
 
-        /* Hero */
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #00aaff 0%, #00ffaa 100%); color: white; padding: 0 1rem; }
-        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; }
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top:0; left:0; width:100%; height:100%;
+            background: rgba(0,0,0,0.4);
+            z-index:1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; }
+        .hero button {
+            padding: 12px 30px;
+            font-size: 1rem;
+            background: #0077ff;
+            border: none;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .hero button:hover { background: #005bbb; }
 
-        /* Features */
-        .features { padding: 6rem 0; background: #fff; text-align: center; }
-        .features h2 { font-size: 2rem; margin-bottom: 2rem; }
-        .feature-cards { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
-        .feature-card { background: #f1f1f1; padding: 2rem; border-radius: 10px; width: 280px; transition: 0.3s; }
-        .feature-card:hover { transform: translateY(-5px); }
-        .feature-card img { width: 60px; margin-bottom: 1rem; }
+        .carousel {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+        }
+        .carousel img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .carousel img.active { opacity: 1; }
 
-        /* Case Studies */
-        .case-studies { padding: 6rem 0; background: #f9f9f9; text-align: center; }
-        .case-studies h2 { font-size: 2rem; margin-bottom: 2rem; }
-        .case-cards { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
-        .case-card { background: #fff; padding: 1.5rem; border-radius: 10px; width: 300px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: 0.3s; }
-        .case-card:hover { transform: translateY(-5px); }
+        /* --- Partner Section --- */
+        .partner {
+            padding: 80px 50px;
+            background: #f1f5ff;
+            text-align: center;
+        }
+        .partner h2 { font-size: 2.5rem; margin-bottom: 20px; color: #1a1a1a; }
+        .partner p { max-width: 700px; margin: 0 auto 40px; font-size: 1.1rem; color: #555; }
+        .partner-icons {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+        .partner-icons .icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        .partner-icons .icon img { width: 60px; }
+        .partner-icons .icon span { font-weight: 600; color: #333; }
 
-        /* Testimonials */
-        .testimonials { padding: 6rem 0; background: #fff; text-align: center; }
-        .testimonials h2 { font-size: 2rem; margin-bottom: 2rem; }
-        .testimonial-cards { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
-        .testimonial-card { background: #f1f1f1; padding: 2rem; border-radius: 10px; width: 280px; }
+        /* --- Products / Case Studies --- */
+        .products {
+            padding: 80px 50px;
+            text-align: center;
+        }
+        .products h2 { font-size: 2.5rem; margin-bottom: 40px; color: #1a1a1a; }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .product-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-card img { width: 100%; height: 180px; object-fit: cover; }
+        .product-card .card-content {
+            padding: 20px;
+        }
+        .product-card .card-content h3 { font-size: 1.2rem; margin-bottom: 10px; }
+        .product-card .card-content p { font-size: 0.95rem; color: #555; }
 
-        /* CTA Banner */
-        .cta-banner { padding: 4rem 1rem; background: #00aaff; color: white; text-align: center; }
-        .cta-banner h2 { font-size: 2rem; margin-bottom: 1rem; }
-        .cta-banner .btn-primary { background: #fff; color: #00aaff; }
+        /* --- Testimonials --- */
+        .testimonials {
+            padding: 80px 50px;
+            background: #eef2f7;
+            text-align: center;
+        }
+        .testimonials h2 { font-size: 2.5rem; margin-bottom: 40px; color: #1a1a1a; }
+        .testimonial-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 30px;
+            padding-bottom: 20px;
+        }
+        .testimonial {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            min-width: 300px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+        }
+        .testimonial p { font-style: italic; margin-bottom: 15px; color: #555; }
+        .testimonial span { font-weight: 600; color: #333; }
 
-        /* Footer */
-        footer { padding: 4rem 1rem; background: #1a1a1a; color: #fff; text-align: center; }
-        footer a { color: #00aaff; transition: 0.3s; }
-        footer a:hover { opacity: 0.7; }
+        /* --- Footer --- */
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 40px 50px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        footer .column { margin-bottom: 20px; }
+        footer h3 { font-size: 1.2rem; margin-bottom: 15px; }
+        footer a { color: #fff; transition: color 0.3s; }
+        footer a:hover { color: #0077ff; }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .feature-cards, .case-cards, .testimonial-cards { flex-direction: column; align-items: center; }
-            .hero h1 { font-size: 2.2rem; }
+        @media (max-width:768px){
+            header { flex-direction: column; gap: 15px; }
+            .partner-icons { gap: 40px; }
         }
     </style>
 </head>
@@ -70,254 +190,121 @@
 
 <!-- Header -->
 <header>
-    <div class="container">
-        <nav>
-            <a href="#"><img src="https://www.kevinhilton.online/backoffice/application/image/web/system-imageviewer.php?id=ZWpLc2NIOURlK1BPdmdDVDBRekt3dz09" alt="Kevin Hilton Logo" style="height:50px;"></a>
-            <ul>
-                <li><a href="#features">Services</a></li>
-                <li><a href="#cases">Case Studies</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact" class="btn-primary">Contact</a></li>
-            </ul>
-        </nav>
+    <div class="logo">
+        <img src="https://www.kevinhilton.online/backoffice/application/image/web/system-imageviewer.php?id=ZWpLc2NIOURlK1BPdmdDVDBRekt3dz09" alt="Kevin Hilton Logo">
     </div>
+    <nav>
+        <ul>
+            <li><a href="#partner">About</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 </header>
 
+<!-- Hero Section -->
+<section class="hero">
+    <div class="carousel">
+        <img src="https://www.kevinhilton.online/images/badminton-booking-system.png" class="active" alt="Badminton Booking System">
+        <img src="https://via.placeholder.com/1920x1080?text=Mobile+App+1" alt="Mobile App 1">
+        <img src="https://via.placeholder.com/1920x1080?text=Cloud+System+2" alt="Cloud System 2">
+    </div>
+    <div class="hero-content">
+        <h1>Cloud & Mobile Solutions You Can Trust</h1>
+        <p>Tailored software solutions designed for your unique business needs.</p>
+        <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">See My Work</button>
+    </div>
+</section>
 
-<!-- Hero Section with Slideshow -->
-<section class="hero-carousel">
-    <div class="carousel-container">
-        <div class="carousel-slide active">
+<!-- Partner Section -->
+<section class="partner" id="partner">
+    <h2>Your Trusted Software Partner</h2>
+    <p>We provide expert cloud and mobile development solutions. Our approach ensures each project is tailored to your business goals, delivered efficiently, and supported long-term.</p>
+    <div class="partner-icons">
+        <div class="icon"><img src="https://via.placeholder.com/60" alt="Cloud"><span>Cloud Development</span></div>
+        <div class="icon"><img src="https://via.placeholder.com/60" alt="Mobile"><span>Mobile Apps</span></div>
+        <div class="icon"><img src="https://via.placeholder.com/60" alt="Support"><span>24/7 Support</span></div>
+    </div>
+</section>
+
+<!-- Products / Case Studies -->
+<section class="products" id="products">
+    <h2>Products & Case Studies</h2>
+    <div class="product-grid">
+        <div class="product-card">
             <img src="https://www.kevinhilton.online/images/badminton-booking-system.png" alt="Badminton Booking System">
-        </div>
-        <div class="carousel-slide">
-            <img src="https://www.kevinhilton.online/images/modelling.png" alt="Modelling">
-        </div>
-        <div class="carousel-slide">
-            <img src="https://www.kevinhilton.online/images/planning-board-05.png" alt="Capacity Planning">
-        </div>
-        <div class="carousel-slide">
-            <img src="https://www.kevinhilton.online/images/tasks.png" alt="Task Management">
-        </div>
-        <div class="carousel-slide">
-            <img src="https://www.kevinhilton.online/images/transport.png" alt="Logistics">
-        </div>
-        <div class="carousel-slide">
-            <img src="https://www.kevinhilton.online/images/audits-mobile.png" alt="Audits Mobile">
-        </div>
-        <div class="carousel-slide">
-            <img src="https://www.kevinhilton.online/images/audits-mobile2.png" alt="Audits Mobile">
-        </div>
-
-        <!-- Navigation Arrows -->
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
-    </div>
-    <div class="hero-text">
-        <h1>Cloud & Mobile Development</h1>
-        <p>Building cloud-based web systems and mobile apps for modern businesses.</p>
-        <a href="#contact" class="btn-primary">Get Started</a>
-    </div>
-</section>
-
-<style>
-    /* Hero Carousel */
-    .hero-carousel {
-        position: relative;
-        height: 60vh; /* smaller height */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #f9f9f9;
-        overflow: hidden;
-        flex-direction: column;
-        text-align: center;
-        padding: 2rem 1rem;
-    }
-
-    .carousel-container {
-        position: relative;
-        width: 100%;
-        max-width: 800px;
-        height: 100%;
-    }
-
-    .carousel-slide {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-    }
-
-    .carousel-slide.active {
-        opacity: 1;
-        z-index: 1;
-    }
-
-    .carousel-slide img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        border-radius: 10px;
-    }
-
-    /* Carousel Arrows */
-    .prev, .next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(0,0,0,0.5);
-        color: white;
-        border: none;
-        padding: 0.5rem 1rem;
-        font-size: 2rem;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: 0.3s;
-    }
-    .prev:hover, .next:hover { background: rgba(0,0,0,0.7); }
-    .prev { left: 10px; }
-    .next { right: 10px; }
-
-    .hero-text {
-        margin-top: 1rem;
-        color: #1a1a1a;
-    }
-
-    .hero-text h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-    .hero-text p { font-size: 1rem; margin-bottom: 1rem; }
-
-    @media (max-width: 768px) {
-        .hero-carousel { height: 50vh; }
-        .hero-text h1 { font-size: 1.5rem; }
-    }
-</style>
-
-<script>
-    const slides = document.querySelectorAll('.carousel-slide');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-    let currentSlide = 0;
-
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.remove('active');
-            if (i === index) slide.classList.add('active');
-        });
-    }
-
-    prevBtn.addEventListener('click', () => {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        showSlide(currentSlide);
-    });
-
-    nextBtn.addEventListener('click', () => {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    });
-
-    // Auto-slide every 5 seconds
-    setInterval(() => {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }, 5000);
-</script>
-
-
-<!-- Features Section -->
-<section id="features" class="features">
-    <div class="container">
-        <h2>Our Services</h2>
-        <div class="feature-cards">
-            <div class="feature-card">
-                <img src="https://img.icons8.com/ios-filled/100/000000/cloud.png" alt="Cloud Development">
-                <h3>Cloud Development</h3>
-                <p>Scalable cloud solutions for your business applications with high reliability.</p>
+            <div class="card-content">
+                <h3>Badminton Booking System</h3>
+                <p>A cloud-based system for seamless court reservations and management. Optimized for both web and mobile.</p>
             </div>
-            <div class="feature-card">
-                <img src="https://img.icons8.com/ios-filled/100/000000/phone.png" alt="Mobile Apps">
-                <h3>Mobile Apps</h3>
-                <p>Custom iOS and Android apps designed for performance and user experience.</p>
+        </div>
+        <div class="product-card">
+            <img src="https://via.placeholder.com/400x200?text=Mobile+App+Example" alt="Mobile App">
+            <div class="card-content">
+                <h3>Mobile App Solutions</h3>
+                <p>Custom mobile applications for iOS and Android tailored to your business requirements.</p>
             </div>
-            <div class="feature-card">
-                <img src="https://img.icons8.com/ios-filled/100/000000/api.png" alt="API Integration">
-                <h3>API Integration</h3>
-                <p>Seamless integration with third-party services and internal systems.</p>
+        </div>
+        <div class="product-card">
+            <img src="https://via.placeholder.com/400x200?text=Cloud+System" alt="Cloud System">
+            <div class="card-content">
+                <h3>Cloud Platforms</h3>
+                <p>Scalable cloud solutions for enterprise and startups, ensuring reliability and security.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Case Studies Section -->
-<section id="cases" class="case-studies">
-    <div class="container">
-        <h2>Case Studies</h2>
-        <div class="case-cards">
-            <div class="case-card">
-                <h3>Project A</h3>
-                <p>Cloud-based inventory system for a retail business, improving efficiency by 40%.</p>
-            </div>
-            <div class="case-card">
-                <h3>Project B</h3>
-                <p>Mobile app for appointment scheduling, reducing no-shows and increasing customer satisfaction.</p>
-            </div>
-            <div class="case-card">
-                <h3>Project C</h3>
-                <p>API integration for a logistics platform, automating real-time tracking of shipments.</p>
-            </div>
+<!-- Testimonials -->
+<section class="testimonials" id="testimonials">
+    <h2>What Clients Say</h2>
+    <div class="testimonial-slider">
+        <div class="testimonial">
+            <p>"Kevin delivered our app ahead of schedule and with amazing quality. Highly recommend!"</p>
+            <span>- John Smith, CEO</span>
+        </div>
+        <div class="testimonial">
+            <p>"Professional, responsive, and highly skilled. Our cloud system has never been smoother."</p>
+            <span>- Sarah Lee, CTO</span>
+        </div>
+        <div class="testimonial">
+            <p>"Tailored solutions exactly as we needed. Excellent ongoing support."</p>
+            <span>- Michael Brown, Founder</span>
         </div>
     </div>
-</section>
-
-<!-- Testimonials Section -->
-<section id="testimonials" class="testimonials">
-    <div class="container">
-        <h2>What Clients Say</h2>
-        <div class="testimonial-cards">
-            <div class="testimonial-card">
-                <p>"Kevin built our cloud platform from scratch. We now save 50% in operational costs!"</p>
-                <strong>- John Doe, CEO</strong>
-            </div>
-            <div class="testimonial-card">
-                <p>"Amazing mobile app development skills. The project was delivered on time and exceeded expectations."</p>
-                <strong>- Jane Smith, CTO</strong>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- CTA Banner -->
-<section class="cta-banner">
-    <h2>Ready to start your project?</h2>
-    <a href="#contact" class="btn-primary">Contact Me</a>
 </section>
 
 <!-- Footer -->
 <footer id="contact">
-    <div class="container">
-        <p>&copy; 2025 Kevin Hilton. All rights reserved.</p>
-        <p>Email: <a href="mailto:hello@kevinhilton.online">hello@kevinhilton.online</a> | Phone: +44 123 4567 890</p>
-        <p>
-            <a href="#">LinkedIn</a> |
-            <a href="#">Twitter</a> |
-            <a href="#">GitHub</a>
-        </p>
+    <div class="column">
+        <h3>Kevin Hilton</h3>
+        <p>Cloud & Mobile Development Solutions</p>
+        <p>Email: info@kevinhilton.online</p>
+    </div>
+    <div class="column">
+        <h3>Quick Links</h3>
+        <a href="#partner">About</a><br>
+        <a href="#products">Products</a><br>
+        <a href="#testimonials">Testimonials</a><br>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="column">
+        <h3>Follow Me</h3>
+        <a href="#">LinkedIn</a><br>
+        <a href="#">GitHub</a>
     </div>
 </footer>
 
-<!-- Smooth Scroll JS -->
+<!-- JS for Hero Carousel -->
 <script>
-    const links = document.querySelectorAll('a[href^="#"]');
-    links.forEach(link => {
-        link.addEventListener('click', e => {
-            e.preventDefault();
-            const target = document.querySelector(link.getAttribute('href'));
-            target.scrollIntoView({ behavior: 'smooth' });
-        });
-    });
+    const slides = document.querySelectorAll('.carousel img');
+    let current = 0;
+    setInterval(() => {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+    }, 5000);
 </script>
 
 </body>
