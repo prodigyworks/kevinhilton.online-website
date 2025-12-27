@@ -1296,6 +1296,10 @@ section {
     font-size: 36px;
   }
 
+  .hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../images/mobile-bg.png) center center no-repeat;
+  }
+
   .hero .btn-get-started,
   .hero .btn-watch-video {
     font-size: 14px;
