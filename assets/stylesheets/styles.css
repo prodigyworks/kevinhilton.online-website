@@ -64,7 +64,7 @@ section {
 
 .section-header {
   text-align: center;
-  padding-bottom: 60px;
+  padding-bottom: 20px;
 }
 
 .section-header h2 {
@@ -921,6 +921,7 @@ section {
   box-sizing: content-box;
   padding: 30px;
   margin: 30px 10px;
+  min-height: 170px;
   box-shadow: 0px 0 15px rgba(0, 0, 0, 0.1);
   position: relative;
   background: #fff;
@@ -1030,6 +1031,7 @@ section {
 
 .team .member img {
   border-radius: 10px;
+  height: 160px;
   overflow: hidden;
 }
 
@@ -1331,7 +1333,6 @@ section {
 }
 
 .hero .icon-boxes {
-  padding-bottom: 60px;
 }
 
 @media (min-width: 1200px) {
