@@ -1,5 +1,11 @@
 /* Zra - Technology & Business Services Free Landing Page Template */
+.call-to-action ul {
+  text-align: center;
+}
 
+.call-to-action li {
+  color: white;
+}
 
 /*--------------------------------------------------------------
 # General
@@ -48,7 +54,7 @@ h6 {
 # Sections & Section Header
 --------------------------------------------------------------*/
 section {
-  padding: 90px 0;
+  padding: 50px 0;
   overflow: hidden;
 }
 
@@ -1297,7 +1303,8 @@ section {
   }
 
   .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../images/mobile-bg.png) center center no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../images/hero-bg.jpg);
+    background-repeat: no-repeat;
   }
 
   .hero .btn-get-started,
