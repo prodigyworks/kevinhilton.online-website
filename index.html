@@ -605,7 +605,31 @@
 
   <!-- Template Main JS File -->
   <script src="assets/javascripts/main.js"></script>
+  <div id="cookieConsent" class="cookie-consent">
+    <p>We use cookies to improve your experience on our site. By continuing, you accept our <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+    <button id="acceptCookies">Accept</button>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const cookieBanner = document.getElementById("cookieConsent");
+      const acceptBtn = document.getElementById("acceptCookies");
 
+      // Check if cookie is already set
+      if (!localStorage.getItem("cookiesAccepted")) {
+        cookieBanner.style.display = "flex";
+      }
+
+      if (localStorage.getItem("cookiesAccepted") === "true") {
+        cookieBanner.style.display = "none";
+      }
+
+      // When user clicks Accept
+      acceptBtn.addEventListener("click", function() {
+        localStorage.setItem("cookiesAccepted", "true");
+        cookieBanner.style.display = "none";
+      });
+    });
+  </script>
 </body>
 
 </html>
