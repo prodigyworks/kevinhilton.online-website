@@ -116,8 +116,8 @@
   <section class="terms">
     <div class="container" data-aos="fade-up">
       <h1>Contact Us</h1>
-      <iframe src="https:://kevinhilton.online/backoffice/application/admin/service/contactus.php"></iframe>
-      <form action="/send-contact" method="POST">
+      <iframe id="contactframe" src="https://www.kevinhilton.online/backoffice/application/admin/service/contactus.php"></iframe>
+      <form target="contactframe" method="POST">
         <label for="name">Full Name</label>
         <input type="text" id="name" name="name" placeholder="Your name…" required>
 
@@ -179,7 +179,11 @@
 
 <!-- Template Main JS File -->
 <script src="assets/javascripts/main.js"></script>
-
+<script>
+  function postMessage(str) {
+    alert(str);
+  }
+</script>
 </body>
 
 </html>
