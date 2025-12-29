@@ -1,3 +1,28 @@
+.service-item {
+  min-height: 500px ! important;
+  box-sizing: content-box;
+  padding: 30px;
+  margin: 30px 10px;
+  box-shadow: 0px 0 15px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border-radius: 10px;
+
+}
+@media screen and (max-width: 768px) {
+  .services-img {
+    max-width: 70vw !important;
+  }
+
+}
+.services-img {
+  margin-top: 20px;
+  max-height: 340px;
+}
+
+.terms {
+  padding: 80px;
+}
+
 /* Zra - Technology & Business Services Free Landing Page Template */
 .call-to-action ul {
   text-align: center;
