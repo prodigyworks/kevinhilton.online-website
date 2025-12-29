@@ -188,6 +188,20 @@
 <!-- Template Main JS File -->
 <script src="assets/javascripts/main.js"></script>
 <script>
+  toastr.options = {
+    "closeButton": true,
+    "progressBar": true,
+    "positionClass": "toast-bottom-center",
+    "timeOut": "4000",
+    "extendedTimeOut": "1000",
+    "showDuration": "300",
+    "hideDuration": "300",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  };
+
   function postMessage(str) {
     toastr.success(str, "Kevin Hilton Online");
   }
