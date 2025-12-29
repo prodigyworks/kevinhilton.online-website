@@ -26,6 +26,10 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <!-- Main CSS File -->
   <link href="assets/stylesheets/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
   <style>
     form {
       margin-top: 20px;
@@ -185,7 +189,7 @@
 <script src="assets/javascripts/main.js"></script>
 <script>
   function postMessage(str) {
-    alert(str);
+    toastr.success(str, "Kevin Hilton Online");
   }
 
   function submitform() {
