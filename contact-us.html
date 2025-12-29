@@ -119,8 +119,8 @@
   <section class="terms">
     <div class="container" data-aos="fade-up">
       <h1>Contact Us</h1>
-      <iframe id="contactframe" src="https://www.kevinhilton.online/backoffice/application/admin/service/contactus.php"></iframe>
-      <form target="contactframe" method="POST">
+      <iframe id="contactframe" name="contactframe"></iframe>
+      <form id="submitform" target="contactframe" method="POST" action="https://www.kevinhilton.online/backoffice/application/admin/service/contactus.php">
         <label for="name">Full Name</label>
         <input type="text" id="name" name="name" placeholder="Your name…" required>
 
@@ -133,8 +133,9 @@
         <label for="message">Message</label>
         <textarea id="message" name="message" placeholder="Write your message…" required></textarea>
 
-        <button type="submit">Send Message</button>
       </form>
+
+      <button onclick="submitform()">Send Message</button>
 
       <div class="contact-info">
         <p><strong>Email:</strong> <a href="mailto:info@kevinhilton.online">info@kevinhilton.online</a></p>
@@ -185,6 +186,10 @@
 <script>
   function postMessage(str) {
     alert(str);
+  }
+
+  function submitform() {
+    document.getElementById("submitform").submit();
   }
 </script>
 </body>
