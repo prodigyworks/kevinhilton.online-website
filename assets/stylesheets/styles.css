@@ -2119,3 +2119,23 @@ section {
 .footer .credits a {
   color: #fff;
 }
+
+/* Flutter Section */
+#flutter .subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+#flutter .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+#flutter .card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
